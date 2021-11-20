@@ -68,3 +68,5 @@ def downgrade(image, scale=3):
     new_img = cv2.resize(image, new_size, interpolation=cv2.INTER_CUBIC)
     new_img = cv2.resize(new_img, orig_size, interpolation=cv2.INTER_CUBIC)
     return new_img
+
+
