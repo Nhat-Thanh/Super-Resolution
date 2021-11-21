@@ -279,12 +279,12 @@ class SuperResolution:
 
     # end test()
 
-    def execute(self, img, ratio, show=False, save=False, savename="img.png"):
-        new_h = int(img.shape[0] * ratio)
-        new_w = int(img.shape[1] * ratio)
+    def predict(self, img, scale=2):
+        new_h = int(img.shape[0] * scale)
+        new_w = int(img.shape[1] * scale)
 
-        img = cv2.resize(src=img, dsize=(new_w, new_h), interpolation=cv2.INTER_CUBIC)
-        img = np.expand_dims(img, axis=0)
+        bicubic_img = cv2.resize(src=img, dsize=(new_w, new_h), interpolation=cv2.INTER_CUBIC)
+        img = np.expand_dims(bicubic_img, axis=0)
         float_img = img / 255
         img_recon, _ = self.sess.run(
             [self.reconstruction, self.psnr],
@@ -295,13 +295,7 @@ class SuperResolution:
         img_recon = img_recon * 255
         img_recon = img_recon.astype("uint8")
 
-        if save:
-            cv2.imwrite(savename, img_recon)
-        if show:
-            cv2.imshow("image", img_recon)
-            cv2.waitKey(0)
-
-        return img_recon
+        return img_recon, bicubic_img
 
     # end execute
 
