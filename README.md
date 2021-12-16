@@ -22,3 +22,9 @@ You can modify **--scale** argument to your desired value, it affects to your ou
 - Matplotlib 3.4.3
 - Pandas 1.3.4
 - OpenCV 4.5.3
+
+## References
+- [SRCNN original paper](https://arxiv.org/pdf/1501.00092.pdf)
+- [SRCNN original Source Code](http://mmlab.ie.cuhk.edu.hk/projects/SRCNN.html)
+- [YeongHyeon/Super-Resolution_CNN ](https://github.com/YeongHyeon/Super-Resolution_CNN)
+- [aditya9211/Super-Resolution-CNN](https://github.com/aditya9211/Super-Resolution-CNN)
